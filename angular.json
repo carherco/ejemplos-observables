@@ -383,6 +383,133 @@
           }
         }
       }
+    },
+    "combineObservablesSinSubjects": {
+      "root": "projects/combineObservablesSinSubjects/",
+      "sourceRoot": "projects/combineObservablesSinSubjects/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/combineObservablesSinSubjects",
+            "index": "projects/combineObservablesSinSubjects/src/index.html",
+            "main": "projects/combineObservablesSinSubjects/src/main.ts",
+            "polyfills": "projects/combineObservablesSinSubjects/src/polyfills.ts",
+            "tsConfig": "projects/combineObservablesSinSubjects/tsconfig.app.json",
+            "assets": [
+              "projects/combineObservablesSinSubjects/src/favicon.ico",
+              "projects/combineObservablesSinSubjects/src/assets"
+            ],
+            "styles": [
+              "projects/combineObservablesSinSubjects/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/combineObservablesSinSubjects/src/environments/environment.ts",
+                  "with": "projects/combineObservablesSinSubjects/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "combineObservablesSinSubjects:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "combineObservablesSinSubjects:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "combineObservablesSinSubjects:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/combineObservablesSinSubjects/src/test.ts",
+            "polyfills": "projects/combineObservablesSinSubjects/src/polyfills.ts",
+            "tsConfig": "projects/combineObservablesSinSubjects/tsconfig.spec.json",
+            "karmaConfig": "projects/combineObservablesSinSubjects/karma.conf.js",
+            "styles": [
+              "projects/combineObservablesSinSubjects/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/combineObservablesSinSubjects/src/favicon.ico",
+              "projects/combineObservablesSinSubjects/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/combineObservablesSinSubjects/tsconfig.app.json",
+              "projects/combineObservablesSinSubjects/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "combineObservablesSinSubjects-e2e": {
+      "root": "projects/combineObservablesSinSubjects-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/combineObservablesSinSubjects-e2e/protractor.conf.js",
+            "devServerTarget": "combineObservablesSinSubjects:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "combineObservablesSinSubjects:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/combineObservablesSinSubjects-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "auditoria"
